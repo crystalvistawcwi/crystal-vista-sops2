@@ -67,6 +67,20 @@
     transform: translateY(-3px);  /* slight lift */
     box-shadow: 0 0 15px rgba(0, 123, 255, 0.8); /* glow */
     }
+
+    /* Fade-in animation */
+.fade-in {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.fade-in.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+
 </style>
 </head>
 
@@ -78,10 +92,12 @@
          alt="Crystal Vista Logo"> -->
     <img class="corner-image" src="logo.jpeg" alt="Crystal Vista Logo">
     <!-- ---- Header Section ---- -->
-    <h1>Crystal Vista SOPs</h1>
+   <!-- <h1>Crystal Vista SOPs</h1> -->
+    <h1 class="fade-in">Crystal Vista SOPs</h1>
+    <div class="button-container fade-in">
 
     <!-- ---- Button Section ---- -->
-    <div class="button-container">
+    <!-- <div class="button-container"> -->
 
         <!-- Cleaning Windows -->
         <a class="btn" href="https://drive.google.com/file/d/1uheDadorts8s_XDLPkfU2fyWDXFFgy9o/view?usp=sharing" target="_blank">
@@ -110,8 +126,20 @@
 
     </div>
 
+    <script>
+    window.addEventListener("load", () => {
+        const elements = document.querySelectorAll(".fade-in");
+        elements.forEach((el, i) => {
+            setTimeout(() => {
+                el.classList.add("show");
+            }, i * 200); // staggered fade-in (200ms apart)
+        });
+    });
+</script>
+
 </body>
 </html>
+
 
 
 
