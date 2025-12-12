@@ -5,7 +5,7 @@
 <title>Crystal Vista SOPs</title>
 
 <style>
-    /* ---- Page Layout and Body Styling ---- */
+    /* ---------- Base Layout ---------- */
     body {
         margin: 0;
         height: 100vh;
@@ -13,19 +13,41 @@
         flex-direction: column;
         justify-content: center;
         align-items: center;
-        background-color: #f5f5f5;
         font-family: Arial, sans-serif;
+        background-color: #f5f5f5;
+        overflow: hidden;
         position: relative;
     }
 
-    /* ---- Header Text Styling ---- */
-    h1 {
-        margin-bottom: 40px;
-        font-size: 36px;
-        color: #333333;
+    /* ---------- Background Image Overlay ---------- */
+    #bg-overlay {
+        position: fixed;
+        inset: 0;
+        background-image: url("teampic.jpg"); /* image from root */
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        opacity: 0;
+        z-index: -1;
+        transition: opacity 1.2s ease;
     }
 
-    /* ---- Image in Upper Right Corner ---- */
+    /* ---------- Header ---------- */
+    h1 {
+        font-size: 36px;
+        color: #333;
+        margin-bottom: 40px;
+        opacity: 0;
+        transform: translateY(20px);
+        transition: opacity 0.8s ease, transform 0.8s ease;
+    }
+
+    h1.show {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+    /* ---------- Logo ---------- */
     .corner-image {
         position: absolute;
         top: 20px;
@@ -33,7 +55,7 @@
         width: 144px;
     }
 
-    /* ---- Button Container Layout ---- */
+    /* ---------- Button Container ---------- */
     .button-container {
         display: flex;
         flex-direction: column;
@@ -41,106 +63,91 @@
         text-align: center;
     }
 
-    /* ---- Button Styling ---- */
-    
+    /* ---------- Buttons ---------- */
     .btn {
-    padding: 15px 30px;
-    font-size: 18px;
-    text-decoration: none;
-    color: white;
-    background-color: #007bff;
-    border-radius: 8px;
-    width: 350px;
-    margin: 0 auto;
-    display: block;
-    
-    /* Animation + smoothness */
-    transition: 
-        transform 0.2s ease,
-        box-shadow 0.3s ease,
-        background-color 0.3s ease;
+        width: 350px;
+        padding: 15px 30px;
+        font-size: 18px;
+        color: #fff;
+        text-decoration: none;
+        background-color: #007bff;
+        border-radius: 8px;
+        opacity: 0;
+        transform: translateY(15px);
+        transition:
+            opacity 0.6s ease,
+            transform 0.6s ease,
+            box-shadow 0.3s ease,
+            background-color 0.3s ease;
     }
 
-    /* ---- Glow on Hover ---- */
-.btn:hover {
-    background-color: #0056b3;
-    transform: translateY(-3px);  /* slight lift */
-    box-shadow: 0 0 15px rgba(0, 123, 255, 0.8); /* glow */
+    .btn.show {
+        opacity: 1;
+        transform: translateY(0);
     }
 
-    /* Fade-in animation */
-.fade-in {
-    opacity: 0;
-    transform: translateY(20px);
-    transition: opacity 0.8s ease, transform 0.8s ease;
-}
-
-.fade-in.show {
-    opacity: 1;
-    transform: translateY(0);
-}
-
-
+    .btn:hover {
+        background-color: #0056b3;
+        transform: translateY(-3px);
+        box-shadow: 0 0 15px rgba(0, 123, 255, 0.8);
+    }
 </style>
 </head>
 
 <body>
 
-    <!-- ---- Image Logo in Upper Right ---- -->
-    <!--<img class="corner-image" 
-         src="https://drive.google.com/uc?export=view&id=1kVBdkWwgBbYg6oj78oms5wHGYSaHsvi9"
-         alt="Crystal Vista Logo"> -->
-    <img class="corner-image" src="logo.jpeg" alt="Crystal Vista Logo">
-    <!-- ---- Header Section ---- -->
-   <!-- <h1>Crystal Vista SOPs</h1> -->
-    <h1 class="fade-in">Crystal Vista SOPs</h1>
-    <div class="button-container fade-in">
+<div id="bg-overlay"></div>
 
-    <!-- ---- Button Section ---- -->
-    <!-- <div class="button-container"> -->
+<img class="corner-image" src="logo.jpeg" alt="Crystal Vista Logo">
 
-        <!-- Cleaning Windows -->
-        <a class="btn" href="https://drive.google.com/file/d/1uheDadorts8s_XDLPkfU2fyWDXFFgy9o/view?usp=sharing" target="_blank">
-            Cleaning Windows
-        </a>
+<h1>Crystal Vista SOPs</h1>
 
-        <!-- Gutter Cleaning -->
-        <a class="btn" href="https://drive.google.com/file/d/1rrYa9ZyEtMvKE4O8x3AFKKTGqBzp1Mu-/view?usp=sharing" target="_blank">
-            Gutter Cleaning
-        </a>
+<div class="button-container">
+    <a class="btn" href="https://drive.google.com/file/d/1uheDadorts8s_XDLPkfU2fyWDXFFgy9o/view" target="_blank">
+        Cleaning Windows
+    </a>
 
-        <!-- Softwashing -->
-        <a class="btn" href="https://drive.google.com/file/d/1iM16jt6zpO1a10Y2GNj7ex8YjlR88wtJ/view?usp=sharing" target="_blank">
-            Softwashing
-        </a>
+    <a class="btn" href="https://drive.google.com/file/d/1rrYa9ZyEtMvKE4O8x3AFKKTGqBzp1Mu-/view" target="_blank">
+        Gutter Cleaning
+    </a>
 
-        <!-- Window Cleaning Basics -->
-        <a class="btn" href="https://drive.google.com/file/d/12zYNw7eYa1JcdY6b9EmwyFZoYEUjuimi/view?usp=sharing" target="_blank">
-            Window Cleaning Basics
-        </a>
+    <a class="btn" href="https://drive.google.com/file/d/1iM16jt6zpO1a10Y2GNj7ex8YjlR88wtJ/view" target="_blank">
+        Softwashing
+    </a>
 
-        <!-- Window Types -->
-        <a class="btn" href="https://drive.google.com/file/d/1XQYk9RznLhYSvVE7RzX1ibotxC4QyLXT/view?usp=sharing" target="_blank">
-            Window Types
-        </a>
+    <a class="btn" href="https://drive.google.com/file/d/12zYNw7eYa1JcdY6b9EmwyFZoYEUjuimi/view" target="_blank">
+        Window Cleaning Basics
+    </a>
 
-    </div>
+    <a class="btn" href="https://drive.google.com/file/d/1XQYk9RznLhYSvVE7RzX1ibotxC4QyLXT/view" target="_blank">
+        Window Types
+    </a>
+</div>
 
-    <script>
-    window.addEventListener("load", () => {
-        const elements = document.querySelectorAll(".fade-in");
-        elements.forEach((el, i) => {
-            setTimeout(() => {
-                el.classList.add("show");
-            }, i * 200); // staggered fade-in (200ms apart)
-        });
+<script>
+window.addEventListener("load", () => {
+    const title = document.querySelector("h1");
+    const buttons = document.querySelectorAll(".btn");
+    const bg = document.getElementById("bg-overlay");
+
+    // Step 1: show title
+    setTimeout(() => {
+        title.classList.add("show");
+    }, 200);
+
+    // Step 2: animate buttons sequentially
+    buttons.forEach((btn, index) => {
+        setTimeout(() => {
+            btn.classList.add("show");
+        }, 600 + index * 200);
     });
+
+    // Step 3: fade in background image
+    setTimeout(() => {
+        bg.style.opacity = "0.3";
+    }, 600 + buttons.length * 200 + 400);
+});
 </script>
 
 </body>
 </html>
-
-
-
-
-
