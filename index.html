@@ -1,3 +1,4 @@
+<!-- index.html -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -5,7 +6,6 @@
 <title>Crystal Vista SOPs</title>
 
 <style>
-    /* ---------- Base Layout ---------- */
     body {
         margin: 0;
         height: 100vh;
@@ -19,11 +19,10 @@
         position: relative;
     }
 
-    /* ---------- Background Image Overlay ---------- */
     #bg-overlay {
         position: fixed;
         inset: 0;
-        background-image: url("teampic.jpg"); /* image from root */
+        background-image: url("teampic.jpg");
         background-size: cover;
         background-position: center;
         background-repeat: no-repeat;
@@ -32,7 +31,6 @@
         transition: opacity 1.2s ease;
     }
 
-    /* ---------- Header ---------- */
     h1 {
         font-size: 36px;
         color: #333;
@@ -47,7 +45,6 @@
         transform: translateY(0);
     }
 
-    /* ---------- Logo ---------- */
     .corner-image {
         position: absolute;
         top: 20px;
@@ -55,7 +52,6 @@
         width: 144px;
     }
 
-    /* ---------- Button Container ---------- */
     .button-container {
         display: flex;
         flex-direction: column;
@@ -63,7 +59,6 @@
         text-align: center;
     }
 
-    /* ---------- Buttons ---------- */
     .btn {
         width: 350px;
         padding: 15px 30px;
@@ -103,32 +98,12 @@
 <h1>Crystal Vista SOPs</h1>
 
 <div class="button-container">
-    <a class="btn" href="https://drive.google.com/file/d/1uheDadorts8s_XDLPkfU2fyWDXFFgy9o/view" target="_blank">
-        Cleaning Windows
+    <a class="btn" href="office-sops.html">
+        Office SOPs
     </a>
 
-    <a class="btn" href="https://drive.google.com/file/d/1rrYa9ZyEtMvKE4O8x3AFKKTGqBzp1Mu-/view" target="_blank">
-        Gutter Cleaning
-    </a>
-
-    <a class="btn" href="https://drive.google.com/file/d/1iM16jt6zpO1a10Y2GNj7ex8YjlR88wtJ/view" target="_blank">
-        Softwashing
-    </a>
-
-    <a class="btn" href="https://drive.google.com/file/d/12zYNw7eYa1JcdY6b9EmwyFZoYEUjuimi/view" target="_blank">
-        Window Cleaning Basics
-    </a>
-
-    <a class="btn" href="https://drive.google.com/file/d/1XQYk9RznLhYSvVE7RzX1ibotxC4QyLXT/view" target="_blank">
-        Window Types
-    </a>
-
-    <a class="btn" href="https://drive.google.com/file/d/1MmIdF5hV3DTsHkO_JJXdhW3wJWCS9wJr/view" target="_blank">
-        Snow Removal Office SOP
-    </a>
-
-    <a class="btn" href="https://drive.google.com/file/d/1dfI-A2CKxEMQS_3PzWZ-rhHe2QWHuE8r/view" target="_blank">
-        Holiday Lights Installation SOP
+    <a class="btn" href="field-sops.html">
+        Field SOPs
     </a>
 </div>
 
@@ -138,19 +113,16 @@ window.addEventListener("load", () => {
     const buttons = document.querySelectorAll(".btn");
     const bg = document.getElementById("bg-overlay");
 
-    // Step 1: show title
     setTimeout(() => {
         title.classList.add("show");
     }, 200);
 
-    // Step 2: animate buttons sequentially
     buttons.forEach((btn, index) => {
         setTimeout(() => {
             btn.classList.add("show");
         }, 600 + index * 200);
     });
 
-    // Step 3: fade in background image
     setTimeout(() => {
         bg.style.opacity = "0.3";
     }, 600 + buttons.length * 200 + 400);
@@ -159,5 +131,3 @@ window.addEventListener("load", () => {
 
 </body>
 </html>
-
-
